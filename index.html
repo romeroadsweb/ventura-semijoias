@@ -68,6 +68,13 @@
 #colecao .photo-button img{object-fit:cover;object-position:center}
 
 .hero h1 em{overflow-wrap:anywhere}.hero h1{font-size:clamp(48px,5.7vw,78px)}@media(max-width:520px){.hero h1{font-size:clamp(36px,9vw,48px)}}
+
+/* Moving highlight around the two main buttons */
+@property --ventura-border-angle{syntax:"<angle>";initial-value:0deg;inherits:false}
+.hero-actions>a{position:relative;isolation:isolate}
+.hero-actions>a::before{content:"";position:absolute;inset:-2px;padding:2px;border-radius:inherit;pointer-events:none;background:conic-gradient(from var(--ventura-border-angle),transparent 0deg,transparent 235deg,#e9c780 275deg,#fff7da 305deg,#e9c780 325deg,transparent 355deg);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;animation:ventura-border-travel 3.5s linear infinite}
+@keyframes ventura-border-travel{to{--ventura-border-angle:360deg}}
+@media(prefers-reduced-motion:reduce){.hero-actions>a::before{animation:none;--ventura-border-angle:45deg}}
 </style>
 </head>
 <body>
